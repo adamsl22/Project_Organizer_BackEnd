@@ -1,0 +1,2 @@
+class ProjectCardsController < ApplicationController
+end
