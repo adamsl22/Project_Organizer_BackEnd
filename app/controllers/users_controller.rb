@@ -15,4 +15,9 @@ class UsersController < ApplicationController
         params.require(:user).permit(*args)
     end
 
+    # Client ID
+    # 0f5f50c92fc6d778e758
+    # Client Secret
+    # 0ce31798615f3a71ee57596056cbde24b714ec6c
+
 end
