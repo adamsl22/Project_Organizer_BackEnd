@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_174338) do
+ActiveRecord::Schema.define(version: 2020_03_23_195034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,21 +28,15 @@ ActiveRecord::Schema.define(version: 2020_03_19_174338) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "schedule_entries", force: :cascade do |t|
-    t.date "date"
-    t.time "starttime"
-    t.time "endtime"
-    t.integer "project_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "to_dos", force: :cascade do |t|
     t.string "description"
     t.boolean "completed"
     t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.time "starttime"
+    t.time "endtime"
   end
 
   create_table "users", force: :cascade do |t|
