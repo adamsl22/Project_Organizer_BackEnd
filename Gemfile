@@ -42,5 +42,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # for use with the oauth github api
-gem 'omniauth'
-gem 'omniauth-github'
+# gem 'omniauth'
+# gem 'omniauth-github'
