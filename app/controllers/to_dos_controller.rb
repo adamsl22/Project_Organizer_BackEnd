@@ -1,7 +1,13 @@
 class ToDosController < ApplicationController
 
     def create
-        render json: ToDo.create(to_do_params)
+        @todo = ToDo.new(to_do_params)
+
+        if @todo.save
+            render json: @todo.to_json
+        else
+            render json: ("To-Do creation unsuccessful").to_json
+        end
     end
 
     def update

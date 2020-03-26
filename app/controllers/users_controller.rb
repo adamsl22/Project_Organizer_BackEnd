@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
     def create
-        render json: User.create(user_params)
+        @user = User.new(user_params);
+    
+        if @user.save
+          render json: @user.to_json
+        else
+          render json: ("User creation unsuccessful").to_json
+        end
     end
 
     def update

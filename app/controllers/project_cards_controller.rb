@@ -1,7 +1,13 @@
 class ProjectCardsController < ApplicationController
 
     def create
-        render json: ProjectCard.create(project_card_params)
+        @project_card = ProjectCard.new(project_card_params)
+    
+        if @project_card.save
+          render json: @project_card.to_json
+        else
+          render json: ("Project creation unsuccessful").to_json
+        end
     end
 
     def update
