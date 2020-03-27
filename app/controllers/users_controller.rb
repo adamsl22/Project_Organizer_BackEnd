@@ -1,29 +1,21 @@
 class UsersController < ApplicationController
 
     def create
-        @user = User.new(user_params);
-    
-        if @user.save
-          render json: @user.to_json
-        else
-          render json: ("User creation unsuccessful").to_json
-        end
+      render json: User.create(user_params);
+    end
+
+    def index
+      render json: User.all
     end
 
     def update
-        user = User.find(params[:id])
-        render json: user.update(user_params)
+      user = User.find(params[:id])
+      render json: user.update(user_params)
     end
 
     private
 
-    def user_params(*args)
-        params.require(:user).permit(*args)
+    def user_params
+      params.require(:user).permit(:name, :username, :password_digest)
     end
-
-    def new
-        
-    end
-
-
 end

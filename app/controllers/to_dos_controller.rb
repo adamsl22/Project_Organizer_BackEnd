@@ -1,13 +1,11 @@
 class ToDosController < ApplicationController
 
     def create
-        @todo = ToDo.new(to_do_params)
-
-        if @todo.save
-            render json: @todo.to_json
-        else
-            render json: ("To-Do creation unsuccessful").to_json
-        end
+        render json: ToDo.create(to_do_params);
+    end
+  
+    def index
+        render json: ToDo.all
     end
 
     def update
@@ -22,8 +20,8 @@ class ToDosController < ApplicationController
 
     private
 
-    def to_do_params(*args)
-        params.require(:to_do).permit(*args)
+    def to_do_params
+        params.require(:to_do).permit(:description, :completed, :project_card_id, :date, :starttime, :endtime)
     end
 
 end

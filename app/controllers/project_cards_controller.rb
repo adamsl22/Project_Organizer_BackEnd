@@ -1,13 +1,11 @@
 class ProjectCardsController < ApplicationController
 
     def create
-        @project_card = ProjectCard.new(project_card_params)
-    
-        if @project_card.save
-          render json: @project_card.to_json
-        else
-          render json: ("Project creation unsuccessful").to_json
-        end
+        render json: ProjectCard.create(project_card_params);
+    end
+
+    def index
+        render json: ProjectCard.all
     end
 
     def update
@@ -22,8 +20,7 @@ class ProjectCardsController < ApplicationController
 
     private
 
-    def project_card_params(*args)
-        params.require(:project_card).permit(*args)
+    def project_card_params
+        params.require(:project_card).permit(:name, :logo, :description, :status, :repo_link, :notes, :user_id, :color)
     end
-
 end

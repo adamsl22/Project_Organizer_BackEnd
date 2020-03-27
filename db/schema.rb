@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_184030) do
+ActiveRecord::Schema.define(version: 2020_03_26_233344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2020_03_25_184030) do
   create_table "to_dos", force: :cascade do |t|
     t.string "description"
     t.boolean "completed"
-    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date"
-    t.time "starttime"
-    t.time "endtime"
+    t.integer "project_card_id"
+    t.string "date"
+    t.string "starttime"
+    t.string "endtime"
   end
 
   create_table "users", force: :cascade do |t|
