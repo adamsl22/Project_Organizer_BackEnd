@@ -13,7 +13,7 @@ class ProjectCardsController < ApplicationController
         render json: project_card.update(project_card_params)
     end
 
-    def delete
+    def destroy
         project_card = ProjectCard.find(params[:id])
         project_card.delete
     end

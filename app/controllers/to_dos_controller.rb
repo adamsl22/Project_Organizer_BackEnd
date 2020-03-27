@@ -13,7 +13,7 @@ class ToDosController < ApplicationController
         render json: to_do.update(to_do_params)
     end
 
-    def delete
+    def destroy
         to_do = ToDo.find(params[:id])
         to_do.delete
     end
